@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Cat : MonoBehaviour
 {
@@ -64,8 +65,15 @@ public class Cat : MonoBehaviour
         //      collider.
         // You might want to check the Rigidbody2D scripting documentation
         //      for a useful variable :)
-        
 
+        if (_rigidbody.linearVelocity.y >= 0.0f)
+        {
+            GameObject.FindGameObjectWithTag("Platform").GetComponent<TilemapCollider2D>().enabled = false;
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("Platform").GetComponent<TilemapCollider2D>().enabled = true;
+        }
         
         // STEP 1 -------------------------------------------------------------
     }
